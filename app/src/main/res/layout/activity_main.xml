@@ -1,16 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+
     tools:context=".activity.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="match_parent"
+        android:layout_height="175dp"
+        android:background="#442b2b"/>
+
+    <GridLayout
+        android:id="@+id/button_grid"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/logo"
+        android:columnCount="2"
+        android:rowCount="2"
+        android:orientation="vertical"
+        android:padding="30dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true">
+        <Button
+            android:id="@+id/browse_by_icecream"
+            android:text="browse "
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="#e78080"
+            android:padding="30dp"
+            android:layout_gravity="center"
+
+            />
+        <Button
+            android:id="@+id/find_nearby"
+            android:text="find nearby"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="#59ec85"
+            android:padding="30dp"
+            android:layout_gravity="center"
+            />
+        <Button
+            android:id="@+id/shop_list"
+            android:text="shop list"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="#9b80e7"
+            android:padding="30dp"
+            android:layout_gravity="center"
+            />
+        <Button
+            android:id="@+id/random_icecream"
+            android:text="random icecream"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="#e7dd80"
+            android:padding="30dp"
+            android:layout_gravity="center"
+            />
+    </GridLayout>
+
+
 </RelativeLayout>
