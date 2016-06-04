@@ -8,13 +8,15 @@ import java.util.List;
 public class Shop {
     private int id;
     private String name;
+    private String type;
     private String descripe;
     private double posX;
     private double posY;
     private List<Icecream> icecreams;
 
-    public Shop(int id, String name, String descripe, double posX, double posY) {
+    public Shop(int id,String type, String name, String descripe, double posX, double posY) {
         this.id = id;
+        this.type = type;
         this.name = name;
         this.descripe = descripe;
         this.posX = posX;
