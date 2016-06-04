@@ -29,7 +29,7 @@ import java.util.List;
  */
 public class FindNearbyActivity extends AppCompatActivity implements OnMapReadyCallback{
 
-    private MapFragment googleMap;
+    private GoogleMap googleMap;
     private Marker userPosMark;
     private LocationService locationService;
     private ShopService service;
@@ -40,17 +40,19 @@ public class FindNearbyActivity extends AppCompatActivity implements OnMapReadyC
         setContentView(R.layout.activity_find_nearby);
 
 
-        googleMap = (MapFragment)getSupportFragmentManager().findFragmentById(R.id.map);
+        googleMap = ((SupportMapFragment)getSupportFragmentManager().findFragmentById(R.id.map)).getMap();
 //        userPosMark = googleMap.addMarker(new MarkerOptions().position(new LatLng(13.846179, 100.568474)));
 //        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(13.846179, 100.568474),16));
 //
         service = new ShopService();
-        // areaCal = new AreaCalculator(locationService.getLat(),locationService.getLng(),service);
-        List<Shop> showShop = service.getShopInArea(googleMap.getCurrentLocation().getLatitude(),googleMap.getCurrentLocation().getLongitude());
-        googleMap.initShopLocations(showShop);
-//        for(Shop shop: showShop){
-//            googleMap.addMarker(new MarkerOptions().position(new LatLng(shop.getPosX(), shop.getPosY())).title(shop.getName()));
-//        }
+
+        locationService = LocationService.getLocationManager(this,googleMap);
+        areaCal = new AreaCalculator(locationService.getLat(),locationService.getLng(),service);
+        List<Shop> showShop = areaCal.getShopInArea(service.getShopList());
+        //googleMap.initShopLocations(showShop);
+        for(Shop shop: showShop){
+            googleMap.addMarker(new MarkerOptions().position(new LatLng(shop.getPosX(), shop.getPosY())).title(shop.getName()));
+        }
 
     }
 
@@ -67,13 +69,13 @@ public class FindNearbyActivity extends AppCompatActivity implements OnMapReadyC
 
     }
 
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        if (googleMap != null) {
-            getSupportFragmentManager().beginTransaction()
-                    .remove(googleMap)
-                    .commit();
-        }
-    }
+//    @Override
+//    public void onBackPressed() {
+//        super.onBackPressed();
+//        if (googleMap != null) {
+//            getSupportFragmentManager().beginTransaction()
+//                    .remove(googleMap)
+//                    .commit();
+//        }
+//    }
 }

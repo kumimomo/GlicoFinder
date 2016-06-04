@@ -36,22 +36,7 @@ public class ShopService {
         return shopList;
     }
 
-    public List<Shop> getShopInArea(double userLat,double userLng){
-        List<Shop> inArea = new ArrayList<Shop>();
-        double boundLatUp = userLat+0.00450045;
-        double boundLatDn = userLat-0.00450045;
-        double boundLngRt = userLng+0.00450045;
-        double boundLngLt = userLng-0.00450045;
 
-        for(Shop shop: shopList){
-            if((shop.getPosX()<=boundLatUp&&shop.getPosX()>=boundLatDn)&&
-                    (shop.getPosY()<=boundLngRt&&shop.getPosY()>=boundLngLt)){
-                inArea.add(shop);
-                System.out.println("Add shop:" + shop.getId());
-            }
-        }
-        return inArea;
-    }
 
 
 
