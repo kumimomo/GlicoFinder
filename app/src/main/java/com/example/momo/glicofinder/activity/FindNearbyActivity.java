@@ -1,6 +1,7 @@
 package com.example.momo.glicofinder.activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -17,6 +18,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -27,33 +29,54 @@ import java.util.List;
 /**
  * Created by Momo on 3/6/2559.
  */
-public class FindNearbyActivity extends AppCompatActivity implements OnMapReadyCallback{
+public class FindNearbyActivity extends AppCompatActivity implements GoogleMap.OnInfoWindowClickListener,OnMapReadyCallback{
 
-    private MapFragment googleMap;
+    private GoogleMap googleMap;
     private Marker userPosMark;
     private LocationService locationService;
     private ShopService service;
     private AreaCalculator areaCal;
+    private List<Shop> showShop;
 
     protected void onCreate(Bundle savedInstancestate){
         super.onCreate(savedInstancestate);
         setContentView(R.layout.activity_find_nearby);
 
 
-        googleMap = (MapFragment)getSupportFragmentManager().findFragmentById(R.id.map);
+        googleMap = ((SupportMapFragment)getSupportFragmentManager().findFragmentById(R.id.map)).getMap();
 //        userPosMark = googleMap.addMarker(new MarkerOptions().position(new LatLng(13.846179, 100.568474)));
 //        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(13.846179, 100.568474),16));
 //
-        service = new ShopService();
-        // areaCal = new AreaCalculator(locationService.getLat(),locationService.getLng(),service);
-        List<Shop> showShop = service.getShopInArea(googleMap.getCurrentLocation().getLatitude(),googleMap.getCurrentLocation().getLongitude());
-        googleMap.initShopLocations(showShop);
+//        service = new ShopService();
+//
+//        locationService = LocationService.getLocationManager(this,googleMap);
+//        areaCal = new AreaCalculator(locationService.getLat(),locationService.getLng(),service);
+//        showShop = areaCal.getShopInArea(service.getShopList());
+//        //googleMap.initShopLocations(showShop);
 //        for(Shop shop: showShop){
-//            googleMap.addMarker(new MarkerOptions().position(new LatLng(shop.getPosX(), shop.getPosY())).title(shop.getName()));
+//            googleMap.addMarker(new MarkerOptions().position(new LatLng(shop.getPosX(), shop.getPosY()))
+//                    .title(shop.getName())
+//                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.shop_icon)));
 //        }
+//        googleMap.setOnInfoWindowClickListener(this);
 
     }
 
+    public void onStart(){
+        super.onStart();
+        service = new ShopService();
+
+        locationService = LocationService.getLocationManager(this,googleMap);
+        areaCal = new AreaCalculator(locationService.getLat(),locationService.getLng(),service);
+        showShop = areaCal.getShopInArea(service.getShopList());
+        //googleMap.initShopLocations(showShop);
+        for(Shop shop: showShop){
+            googleMap.addMarker(new MarkerOptions().position(new LatLng(shop.getPosX(), shop.getPosY()))
+                    .title(shop.getName())
+                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.shop_icon)));
+        }
+        googleMap.setOnInfoWindowClickListener(this);
+    }
     public void onResume(){
         super.onResume();
     }
@@ -68,12 +91,24 @@ public class FindNearbyActivity extends AppCompatActivity implements OnMapReadyC
     }
 
     @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        if (googleMap != null) {
-            getSupportFragmentManager().beginTransaction()
-                    .remove(googleMap)
-                    .commit();
+    public void onInfoWindowClick(Marker marker) {
+        Intent intent = new Intent(FindNearbyActivity.this,ShopInfoActivity.class);
+        for(Shop shop : showShop){
+            if(shop.getName().equalsIgnoreCase(marker.getTitle())){
+                intent.putExtra("shop",shop);
+            }
         }
+
+        startActivity(intent);
     }
+
+//    @Override
+//    public void onBackPressed() {
+//        super.onBackPressed();
+//        if (googleMap != null) {
+//            getSupportFragmentManager().beginTransaction()
+//                    .remove(googleMap)
+//                    .commit();
+//        }
+//    }
 }

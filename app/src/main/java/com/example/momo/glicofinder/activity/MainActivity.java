@@ -11,6 +11,8 @@ import com.example.momo.glicofinder.R;
 
 public class MainActivity extends AppCompatActivity {
     private Button findNearby_bt;
+    private Button shopList_bt;
+    private Button about_bt;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,5 +29,22 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        shopList_bt = (Button) findViewById(R.id.shop_list);
+        shopList_bt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ShopListActivity.class);
+                startActivity(intent);
+            }
+        });
+        about_bt = (Button) findViewById(R.id.random_icecream);
+        about_bt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, AboutIcecreamActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 }

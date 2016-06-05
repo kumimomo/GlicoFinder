@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.momo.glicofinder.activity.AboutIcecreamActivity">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="match_parent"
+        android:layout_height="125dp"
+        android:background="@drawable/logo"
+        android:layout_marginBottom="10dp"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/logo"
+        android:id="@+id/imageButton1"
+        android:background="@drawable/palitte_white_chocolate"
+        android:layout_margin="5dp"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton2"
+        android:layout_below="@+id/logo"
+        android:layout_toRightOf="@+id/imageButton1"
+        android:background="@drawable/palitte_chocolate"
+        android:layout_margin="5dp"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton3"
+        android:layout_below="@+id/logo"
+        android:layout_toRightOf="@+id/imageButton2"
+        android:background="@drawable/seventeen_mint"
+        android:layout_margin="5dp"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton4"
+        android:layout_below="@+id/imageButton1"
+        android:background="@drawable/seventeen_chocolate"
+        android:layout_margin="5dp"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton5"
+        android:layout_below="@+id/imageButton2"
+        android:layout_toRightOf="@+id/imageButton4"
+        android:background="@drawable/panapp_strawberry"
+        android:layout_margin="5dp"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton6"
+        android:layout_toRightOf="@+id/imageButton5"
+        android:layout_below="@+id/imageButton3"
+        android:background="@drawable/panapp_blueberry"
+        android:layout_margin="5dp"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton7"
+        android:layout_below="@+id/imageButton5"
+        android:background="@drawable/giant_chocolate_nut"
+        android:layout_margin="5dp"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton8"
+        android:layout_toRightOf="@+id/imageButton7"
+        android:layout_below="@+id/imageButton6"
+        android:background="@drawable/giant_chocolate_cookie"
+        android:layout_margin="5dp"/>
+
+
+
+</RelativeLayout>
