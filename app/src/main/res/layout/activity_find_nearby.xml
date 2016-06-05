@@ -6,12 +6,12 @@
     <ImageView
         android:id="@+id/logo"
         android:layout_width="match_parent"
-        android:layout_height="175dp"
-        android:background="#442b2b"/>
+        android:layout_height="125dp"
+        android:background="@drawable/logo"/>
 
     <fragment xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/map"
-        android:name="com.example.momo.glicofinder.fragments.MapFragment"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </LinearLayout>

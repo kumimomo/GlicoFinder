@@ -1,11 +1,12 @@
 package com.example.momo.glicofinder.model;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by Momo on 2/6/2559.
  */
-public class Shop {
+public class Shop implements Serializable{
     private int id;
     private String name;
     private String type;
@@ -14,13 +15,14 @@ public class Shop {
     private double posY;
     private List<Icecream> icecreams;
 
-    public Shop(int id,String type, String name, String descripe, double posX, double posY) {
+    public Shop(int id,String type, String name, String descripe, double posX, double posY,List<Icecream> icecreams) {
         this.id = id;
         this.type = type;
         this.name = name;
         this.descripe = descripe;
         this.posX = posX;
         this.posY = posY;
+        this.icecreams = icecreams;
     }
 
     public int getId() {
@@ -61,5 +63,13 @@ public class Shop {
 
     public void setPosY(double posY) {
         this.posY = posY;
+    }
+
+    public List<Icecream> getIcecreams() {
+        return icecreams;
+    }
+
+    public void setIcecreams(List<Icecream> icecreams) {
+        this.icecreams = icecreams;
     }
 }

@@ -13,6 +13,7 @@ import com.example.momo.glicofinder.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -81,7 +82,8 @@ public class LocationService implements LocationListener{
         if(userPosMark != null){
             userPosMark.remove();
         }
-        userPosMark = googleMap.addMarker(new MarkerOptions().position(new LatLng(lat,lng)));
+        userPosMark = googleMap.addMarker(new MarkerOptions().position(new LatLng(lat,lng))
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.user_icon)));
         googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(coordinate,16));
     }
 
