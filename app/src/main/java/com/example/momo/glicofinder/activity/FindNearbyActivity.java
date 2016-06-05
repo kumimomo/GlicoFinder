@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.example.momo.glicofinder.R;
-import com.example.momo.glicofinder.fragments.MapFragment;
 import com.example.momo.glicofinder.model.AreaCalculator;
 import com.example.momo.glicofinder.model.Shop;
 import com.example.momo.glicofinder.service.LocationService;
