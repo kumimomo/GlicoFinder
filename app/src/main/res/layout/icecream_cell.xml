@@ -5,8 +5,9 @@
 
     <ImageView
         android:id="@+id/img"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+
         />
 
     <TextView
@@ -15,5 +16,7 @@
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/img"
         android:text="icecream"
+        android:textAlignment="center"
+        android:textSize="20dp"
         />
 </RelativeLayout>

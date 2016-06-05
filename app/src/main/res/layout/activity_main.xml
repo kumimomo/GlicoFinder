@@ -26,39 +26,39 @@
         android:layout_centerVertical="true">
         <Button
             android:id="@+id/browse_by_icecream"
-            android:text="browse "
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:background="#e78080"
-            android:padding="30dp"
+            android:text="Browse by Icecream"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:background="#9e9797"
+            android:padding="10dp"
             android:layout_gravity="center"
 
             />
         <Button
             android:id="@+id/find_nearby"
-            android:text="find nearby"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:background="#59ec85"
-            android:padding="30dp"
+            android:text="Find Nearby"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:background="#ee6767"
+            android:padding="10dp"
             android:layout_gravity="center"
             />
         <Button
             android:id="@+id/shop_list"
-            android:text="shop list"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:background="#9b80e7"
-            android:padding="30dp"
+            android:text="Shop List"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:background="#ee6767"
+            android:padding="10dp"
             android:layout_gravity="center"
             />
         <Button
             android:id="@+id/random_icecream"
-            android:text="random icecream"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:background="#e7dd80"
-            android:padding="30dp"
+            android:text="About Icecream"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:background="#ee6767"
+            android:padding="10dp"
             android:layout_gravity="center"
             />
     </GridLayout>

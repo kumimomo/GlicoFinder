@@ -13,6 +13,7 @@ import com.example.momo.glicofinder.model.Shop;
 
 import org.w3c.dom.Text;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ShopInfoActivity extends AppCompatActivity {
@@ -36,9 +37,12 @@ public class ShopInfoActivity extends AppCompatActivity {
         shopDesc = (TextView) findViewById(R.id.shop_desc);
 
         icecreams = shop.getIcecreams();
-
-        icecreamAdapter = new IcecreamAdapter(this,R.layout.icecream_cell,icecreams);
-        icecreamList = (ListView) findViewById(R.id.icecream_list);
+        System.out.println("icecreams size: "+icecreams.size());
+        for(Icecream ic:icecreams){
+            System.out.println("icecream :"+ic.getName());
+        }
+        icecreamAdapter = new IcecreamAdapter(this,R.layout.icecream_cell,shop.getIcecreams());
+        icecreamList = (ListView) findViewById(R.id.icecream_list_view);
         icecreamList.setAdapter(icecreamAdapter);
 
     }
@@ -49,7 +53,7 @@ public class ShopInfoActivity extends AppCompatActivity {
         shopName.setText(shop.getName());
         shopDesc.setText(shop.getDescripe());
 
-        icecreams = shop.getIcecreams();
-        icecreamAdapter.notifyDataSetChanged();
+       // icecreams = shop.getIcecreams();
+       // icecreamAdapter.notifyDataSetChanged();
     }
 }

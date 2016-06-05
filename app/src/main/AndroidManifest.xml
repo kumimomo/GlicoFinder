@@ -35,7 +35,7 @@
             android:name=".activity.FindNearbyActivity"
             android:label="My App"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
         <meta-data
             android:name="com.google.android.gms.version"
@@ -44,7 +44,10 @@
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyCVXbbzsJRzdChFGmC-f8H-E6UVcvF34nE" />
 
-        <activity android:name=".activity.ShopInfoActivity"></activity>
+        <activity android:name=".activity.ShopInfoActivity" />
+        <activity android:name=".activity.ShopListActivity" />
+        <activity android:name=".activity.AboutIcecreamActivity" />
+        <activity android:name=".activity.IcecreamInfoActivity"></activity>
     </application>
 
 </manifest>

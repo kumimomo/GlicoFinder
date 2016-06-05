@@ -5,6 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.momo.glicofinder.R;
@@ -17,11 +19,11 @@ import java.util.List;
  */
 public class IcecreamAdapter extends ArrayAdapter<Icecream>{
 
-    private List<Icecream> icecreams;
+   // private List<Icecream> icecreams;
 
     public IcecreamAdapter(Context context, int resource, List<Icecream> icecreams) {
-        super(context, resource);
-        this.icecreams = icecreams;
+        super(context, resource, icecreams);
+        //this.icecreams = icecreams;
     }
 
     public View getView(final int position, View convertView, ViewGroup parent){
@@ -31,9 +33,11 @@ public class IcecreamAdapter extends ArrayAdapter<Icecream>{
             v = vi.inflate(R.layout.icecream_cell,null);
         }
         TextView icecreamName = (TextView) v.findViewById(R.id.icecream_name);
+        ImageView icecreamImg = (ImageView) v.findViewById(R.id.img);
 
         Icecream icecreamList = getItem(position);
         icecreamName.setText(icecreamList.getName());
+        icecreamImg.setImageResource(icecreamList.getImage());
 
         return v;
     }

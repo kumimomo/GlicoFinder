@@ -9,9 +9,11 @@ public class Icecream implements Serializable{
     private int id;
     private String name;
     private String describe;
+    private int image;
 
-    public Icecream(int id,String name, String describe) {
+    public Icecream(int id,int image,String name, String describe) {
         this.id = id;
+        this.image = image;
         this.name = name;
         this.describe = describe;
     }
@@ -19,6 +21,10 @@ public class Icecream implements Serializable{
     public int getId(){
         return id;
     }
+
+    public int getImage() {return image;}
+
+    public void setImage(int image) {this.image = image;}
 
     public String getName() {
         return name;

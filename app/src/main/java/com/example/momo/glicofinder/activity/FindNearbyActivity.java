@@ -47,6 +47,23 @@ public class FindNearbyActivity extends AppCompatActivity implements GoogleMap.O
 //        userPosMark = googleMap.addMarker(new MarkerOptions().position(new LatLng(13.846179, 100.568474)));
 //        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(13.846179, 100.568474),16));
 //
+//        service = new ShopService();
+//
+//        locationService = LocationService.getLocationManager(this,googleMap);
+//        areaCal = new AreaCalculator(locationService.getLat(),locationService.getLng(),service);
+//        showShop = areaCal.getShopInArea(service.getShopList());
+//        //googleMap.initShopLocations(showShop);
+//        for(Shop shop: showShop){
+//            googleMap.addMarker(new MarkerOptions().position(new LatLng(shop.getPosX(), shop.getPosY()))
+//                    .title(shop.getName())
+//                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.shop_icon)));
+//        }
+//        googleMap.setOnInfoWindowClickListener(this);
+
+    }
+
+    public void onStart(){
+        super.onStart();
         service = new ShopService();
 
         locationService = LocationService.getLocationManager(this,googleMap);
@@ -59,9 +76,7 @@ public class FindNearbyActivity extends AppCompatActivity implements GoogleMap.O
                     .icon(BitmapDescriptorFactory.fromResource(R.drawable.shop_icon)));
         }
         googleMap.setOnInfoWindowClickListener(this);
-
     }
-
     public void onResume(){
         super.onResume();
     }
